@@ -1,0 +1,5 @@
+{
+  "name": "world-temp-map",
+  "compatibility_date": "2026-11-24",
+  "assets": { "directory": "./dist" },
+}
