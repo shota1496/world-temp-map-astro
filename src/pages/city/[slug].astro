@@ -1,0 +1,82 @@
+---
+import Base from "../../layouts/Base.astro";
+import cities from "../../data/cities.json";
+import climate from "../../data/climate.json";
+import { clothingHint, MONTHS } from "../../lib/clothing.js";
+
+export function getStaticPaths() {
+  return cities
+    .filter((c) => c.featured)
+    .map((city) => ({ params: { slug: city.slug }, props: { city } }));
+}
+
+const { city } = Astro.props;
+const monthly = climate[city.slug]; // 12個の月平均気温(1月〜12月)。未取得なら undefined
+const hasMonthly = Array.isArray(monthly) && monthly.length === 12;
+
+let warmest, coldest;
+if (hasMonthly) {
+  warmest = monthly.indexOf(Math.max(...monthly));
+  coldest = monthly.indexOf(Math.min(...monthly));
+}
+
+const description = hasMonthly
+  ? `${city.name}の現在の気温と、月別の平均気温・服装の目安。最も暖かいのは${MONTHS[warmest]}(${monthly[warmest]}℃)、最も寒いのは${MONTHS[coldest]}(${monthly[coldest]}℃)です。`
+  : `${city.name}(${city.country})の現在の気温を確認できます。`;
+---
+
+<Base title={`${city.name}の気温(現在・月別平均) | 世界の気温マップ`} description={description}>
+  <p><a href="/">← 世界の気温マップ</a></p>
+  <h1>{city.name}の気温</h1>
+  <p class="lead">{city.nameEn}({city.country})</p>
+
+  <div class="now" id="now" data-lat={city.lat} data-lon={city.lon}>
+    現在の気温: <strong id="now-temp">—</strong>
+    <small id="now-note">(読み込み中…)</small>
+  </div>
+
+  <p>{city.summary}</p>
+
+  {hasMonthly && (
+    <>
+      <h2>月別の平均気温と服装の目安</h2>
+      <p class="lead">
+        過去10年間(2015〜2024年)の日平均気温を月ごとに平均した値です。
+        {city.name}で最も暖かいのは{MONTHS[warmest]}({monthly[warmest]}℃)、
+        最も寒いのは{MONTHS[coldest]}({monthly[coldest]}℃)です。
+      </p>
+      <table class="climate">
+        <thead>
+          <tr><th>月</th><th>平均気温</th><th>服装の目安</th></tr>
+        </thead>
+        <tbody>
+          {monthly.map((t, i) => (
+            <tr><td>{MONTHS[i]}</td><td>{t}℃</td><td>{clothingHint(t)}</td></tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="status">服装は月平均気温から機械的に出した目安です。天気や体感には個人差があります。</p>
+    </>
+  )}
+</Base>
+
+<script>
+  const el = document.getElementById("now");
+  const tempEl = document.getElementById("now-temp");
+  const noteEl = document.getElementById("now-note");
+
+  fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${el.dataset.lat}&longitude=${el.dataset.lon}&current=temperature_2m`
+  )
+    .then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
+    .then((j) => {
+      tempEl.textContent = `${Math.round(j.current.temperature_2m)}°C`;
+      noteEl.textContent = "(現地の現在値)";
+    })
+    .catch(() => {
+      noteEl.textContent = "(取得に失敗しました)";
+    });
+</script>

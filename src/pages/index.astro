@@ -1,0 +1,116 @@
+---
+import Base from "../layouts/Base.astro";
+import cities from "../data/cities.json";
+
+const featured = cities.filter((c) => c.featured);
+// 地図に渡す最小限のデータ(都市ページがある都市だけリンクを付ける)
+const mapCities = cities.map((c) => ({
+  name: c.name,
+  lat: c.lat,
+  lon: c.lon,
+  href: c.featured ? `/city/${c.slug}/` : null,
+}));
+---
+
+<Base
+  title="世界の気温マップ | 主要都市の現在の気温を地図で確認"
+  description="世界の主要都市の現在の気温を、都市名とセットで地図上に表示。都市ごとのページでは、月別の平均気温と服装の目安も確認できます。"
+>
+  <h1>世界の気温マップ</h1>
+  <p class="lead">
+    世界{cities.length}都市の現在の気温を、地図上で一覧できます。
+    ラベルの色は気温を表し、青いほど寒く、赤いほど暑いことを示します。
+  </p>
+
+  <div id="map" data-cities={JSON.stringify(mapCities)}></div>
+  <p class="status" id="status">気温を読み込み中…</p>
+
+  <h2>都市別の気温ページ</h2>
+  <p class="lead">現在の気温に加えて、月別の平均気温と服装の目安を載せています。</p>
+  <ul class="city-links">
+    {featured.map((c) => (
+      <li><a href={`/city/${c.slug}/`}>{c.name}<br /><small>{c.country}</small></a></li>
+    ))}
+  </ul>
+</Base>
+
+<script>
+  import L from "leaflet";
+  import "leaflet/dist/leaflet.css";
+
+  const mapEl = document.getElementById("map");
+  const statusEl = document.getElementById("status");
+  const cities = JSON.parse(mapEl.dataset.cities);
+
+  // 気温 → 色(-20℃: 青 〜 40℃: 赤)
+  function tempColor(t) {
+    if (t == null) return "#888";
+    const c = Math.max(-20, Math.min(40, t));
+    return `hsl(${220 - ((c + 20) / 60) * 220}, 75%, 42%)`;
+  }
+
+  const map = L.map(mapEl, { worldCopyJump: true, minZoom: 2 }).setView([25, 20], 2);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | ' +
+      '気温: <a href="https://open-meteo.com/">Open-Meteo</a>',
+  }).addTo(map);
+  const layer = L.layerGroup().addTo(map);
+
+  function draw(temps) {
+    layer.clearLayers();
+    cities.forEach((c, i) => {
+      const t = temps ? temps[i] : null;
+      const el = document.createElement(c.href ? "a" : "div");
+      el.className = "city-label";
+      if (c.href) el.href = c.href;
+
+      const name = document.createElement("span");
+      name.className = "city-name";
+      name.textContent = c.name;
+
+      const temp = document.createElement("span");
+      temp.className = "city-temp";
+      temp.textContent = t == null ? "—" : `${Math.round(t)}°C`;
+      temp.style.background = tempColor(t);
+
+      el.append(name, temp);
+      L.marker([c.lat, c.lon], {
+        icon: L.divIcon({ className: "", html: el, iconSize: null }),
+        title: c.name,
+      }).addTo(layer);
+    });
+  }
+
+  // 気温をまとめて取得(50都市ずつ)
+  async function fetchTemps() {
+    const result = new Array(cities.length).fill(null);
+    for (let s = 0; s < cities.length; s += 50) {
+      const chunk = cities.slice(s, s + 50);
+      const lat = chunk.map((c) => c.lat).join(",");
+      const lon = chunk.map((c) => c.lon).join(",");
+      const res = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m`
+      );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      const items = Array.isArray(json) ? json : [json];
+      items.forEach((item, i) => {
+        result[s + i] = item?.current?.temperature_2m ?? null;
+      });
+    }
+    return result;
+  }
+
+  draw(null);
+  fetchTemps()
+    .then((temps) => {
+      draw(temps);
+      const hhmm = new Date().toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" });
+      statusEl.textContent = `${cities.length} 都市 / 更新 ${hhmm}`;
+    })
+    .catch((e) => {
+      statusEl.textContent = `気温の取得に失敗しました(${e.message})`;
+    });
+</script>
