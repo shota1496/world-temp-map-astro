@@ -1,50 +1,371 @@
 [
-  { "slug": "tokyo", "name": "東京", "nameEn": "Tokyo", "country": "日本", "lat": 35.6762, "lon": 139.6503, "featured": true,
-    "summary": "日本の首都。四季がはっきりしていて、夏は高温多湿、冬は晴れて乾燥した日が多い気候です。" },
-  { "slug": "osaka", "name": "大阪", "nameEn": "Osaka", "country": "日本", "lat": 34.6937, "lon": 135.5023, "featured": true,
-    "summary": "西日本を代表する大都市。夏は蒸し暑く、冬は晴れて乾燥する日が多い気候です。" },
-  { "slug": "london", "name": "ロンドン", "nameEn": "London", "country": "イギリス", "lat": 51.5074, "lon": -0.1278, "featured": true,
-    "summary": "英国の首都。温帯の海洋性気候で、極端な暑さや寒さは少なく、雨が降りやすい天気が特徴です。" },
-  { "slug": "new-york", "name": "ニューヨーク", "nameEn": "New York", "country": "アメリカ", "lat": 40.7128, "lon": -74.0060, "featured": true,
-    "summary": "米国東海岸の大都市。夏は蒸し暑く、冬は氷点下になる日もある、寒暖差の大きい気候です。" },
-  { "slug": "sydney", "name": "シドニー", "nameEn": "Sydney", "country": "オーストラリア", "lat": -33.8688, "lon": 151.2093, "featured": true,
-    "summary": "南半球にあるため、季節は日本と逆です。12〜2月が夏、6〜8月が冬にあたります。" },
-  { "slug": "bangkok", "name": "バンコク", "nameEn": "Bangkok", "country": "タイ", "lat": 13.7563, "lon": 100.5018, "featured": true,
-    "summary": "タイの首都。一年を通して高温で、季節は大きく暑季・雨季・乾季に分かれます。" },
-
-  { "slug": "seoul", "name": "ソウル", "nameEn": "Seoul", "country": "韓国", "lat": 37.5665, "lon": 126.9780 },
-  { "slug": "beijing", "name": "北京", "nameEn": "Beijing", "country": "中国", "lat": 39.9042, "lon": 116.4074 },
-  { "slug": "shanghai", "name": "上海", "nameEn": "Shanghai", "country": "中国", "lat": 31.2304, "lon": 121.4737 },
-  { "slug": "hong-kong", "name": "香港", "nameEn": "Hong Kong", "country": "中国", "lat": 22.3193, "lon": 114.1694 },
-  { "slug": "taipei", "name": "台北", "nameEn": "Taipei", "country": "台湾", "lat": 25.0330, "lon": 121.5654 },
-  { "slug": "singapore", "name": "シンガポール", "nameEn": "Singapore", "country": "シンガポール", "lat": 1.3521, "lon": 103.8198 },
-  { "slug": "jakarta", "name": "ジャカルタ", "nameEn": "Jakarta", "country": "インドネシア", "lat": -6.2088, "lon": 106.8456 },
-  { "slug": "manila", "name": "マニラ", "nameEn": "Manila", "country": "フィリピン", "lat": 14.5995, "lon": 120.9842 },
-  { "slug": "hanoi", "name": "ハノイ", "nameEn": "Hanoi", "country": "ベトナム", "lat": 21.0278, "lon": 105.8342 },
-  { "slug": "delhi", "name": "デリー", "nameEn": "Delhi", "country": "インド", "lat": 28.6139, "lon": 77.2090 },
-  { "slug": "mumbai", "name": "ムンバイ", "nameEn": "Mumbai", "country": "インド", "lat": 19.0760, "lon": 72.8777 },
-  { "slug": "dubai", "name": "ドバイ", "nameEn": "Dubai", "country": "アラブ首長国連邦", "lat": 25.2048, "lon": 55.2708 },
-  { "slug": "istanbul", "name": "イスタンブール", "nameEn": "Istanbul", "country": "トルコ", "lat": 41.0082, "lon": 28.9784 },
-  { "slug": "moscow", "name": "モスクワ", "nameEn": "Moscow", "country": "ロシア", "lat": 55.7558, "lon": 37.6173 },
-  { "slug": "paris", "name": "パリ", "nameEn": "Paris", "country": "フランス", "lat": 48.8566, "lon": 2.3522 },
-  { "slug": "berlin", "name": "ベルリン", "nameEn": "Berlin", "country": "ドイツ", "lat": 52.5200, "lon": 13.4050 },
-  { "slug": "rome", "name": "ローマ", "nameEn": "Rome", "country": "イタリア", "lat": 41.9028, "lon": 12.4964 },
-  { "slug": "madrid", "name": "マドリード", "nameEn": "Madrid", "country": "スペイン", "lat": 40.4168, "lon": -3.7038 },
-  { "slug": "reykjavik", "name": "レイキャビク", "nameEn": "Reykjavik", "country": "アイスランド", "lat": 64.1466, "lon": -21.8174 },
-  { "slug": "cairo", "name": "カイロ", "nameEn": "Cairo", "country": "エジプト", "lat": 30.0444, "lon": 31.2357 },
-  { "slug": "nairobi", "name": "ナイロビ", "nameEn": "Nairobi", "country": "ケニア", "lat": -1.2921, "lon": 36.8219 },
-  { "slug": "lagos", "name": "ラゴス", "nameEn": "Lagos", "country": "ナイジェリア", "lat": 6.5244, "lon": 3.3792 },
-  { "slug": "johannesburg", "name": "ヨハネスブルグ", "nameEn": "Johannesburg", "country": "南アフリカ", "lat": -26.2041, "lon": 28.0473 },
-  { "slug": "cape-town", "name": "ケープタウン", "nameEn": "Cape Town", "country": "南アフリカ", "lat": -33.9249, "lon": 18.4241 },
-  { "slug": "chicago", "name": "シカゴ", "nameEn": "Chicago", "country": "アメリカ", "lat": 41.8781, "lon": -87.6298 },
-  { "slug": "los-angeles", "name": "ロサンゼルス", "nameEn": "Los Angeles", "country": "アメリカ", "lat": 34.0522, "lon": -118.2437 },
-  { "slug": "anchorage", "name": "アンカレッジ", "nameEn": "Anchorage", "country": "アメリカ", "lat": 61.2181, "lon": -149.9003 },
-  { "slug": "honolulu", "name": "ホノルル", "nameEn": "Honolulu", "country": "アメリカ", "lat": 21.3069, "lon": -157.8583 },
-  { "slug": "toronto", "name": "トロント", "nameEn": "Toronto", "country": "カナダ", "lat": 43.6532, "lon": -79.3832 },
-  { "slug": "mexico-city", "name": "メキシコシティ", "nameEn": "Mexico City", "country": "メキシコ", "lat": 19.4326, "lon": -99.1332 },
-  { "slug": "lima", "name": "リマ", "nameEn": "Lima", "country": "ペルー", "lat": -12.0464, "lon": -77.0428 },
-  { "slug": "sao-paulo", "name": "サンパウロ", "nameEn": "Sao Paulo", "country": "ブラジル", "lat": -23.5505, "lon": -46.6333 },
-  { "slug": "buenos-aires", "name": "ブエノスアイレス", "nameEn": "Buenos Aires", "country": "アルゼンチン", "lat": -34.6037, "lon": -58.3816 },
-  { "slug": "melbourne", "name": "メルボルン", "nameEn": "Melbourne", "country": "オーストラリア", "lat": -37.8136, "lon": 144.9631 },
-  { "slug": "auckland", "name": "オークランド", "nameEn": "Auckland", "country": "ニュージーランド", "lat": -36.8509, "lon": 174.7645 }
+  {
+    "slug": "tokyo",
+    "name": "東京",
+    "nameEn": "Tokyo",
+    "country": "日本",
+    "lat": 35.6762,
+    "lon": 139.6503,
+    "summary": "日本の首都。四季がはっきりしていて、夏は高温多湿、冬は晴れて乾燥した日が多い気候です。"
+  },
+  {
+    "slug": "osaka",
+    "name": "大阪",
+    "nameEn": "Osaka",
+    "country": "日本",
+    "lat": 34.6937,
+    "lon": 135.5023,
+    "summary": "西日本を代表する大都市。夏は蒸し暑く、冬は晴れて乾燥する日が多い気候です。"
+  },
+  {
+    "slug": "london",
+    "name": "ロンドン",
+    "nameEn": "London",
+    "country": "イギリス",
+    "lat": 51.5074,
+    "lon": -0.1278,
+    "summary": "英国の首都。温帯の海洋性気候で、極端な暑さや寒さは少なく、雨が降りやすい天気が特徴です。"
+  },
+  {
+    "slug": "new-york",
+    "name": "ニューヨーク",
+    "nameEn": "New York",
+    "country": "アメリカ",
+    "lat": 40.7128,
+    "lon": -74.006,
+    "summary": "米国東海岸の大都市。夏は蒸し暑く、冬は氷点下になる日もある、寒暖差の大きい気候です。"
+  },
+  {
+    "slug": "sydney",
+    "name": "シドニー",
+    "nameEn": "Sydney",
+    "country": "オーストラリア",
+    "lat": -33.8688,
+    "lon": 151.2093,
+    "summary": "南半球にあるため、季節は日本と逆です。12〜2月が夏、6〜8月が冬にあたります。"
+  },
+  {
+    "slug": "bangkok",
+    "name": "バンコク",
+    "nameEn": "Bangkok",
+    "country": "タイ",
+    "lat": 13.7563,
+    "lon": 100.5018,
+    "summary": "タイの首都。一年を通して高温で、季節は大きく暑季・雨季・乾季に分かれます。"
+  },
+  {
+    "slug": "seoul",
+    "name": "ソウル",
+    "nameEn": "Seoul",
+    "country": "韓国",
+    "lat": 37.5665,
+    "lon": 126.978,
+    "summary": "韓国の首都。夏は高温多湿で、雨は6〜8月に集中します。冬は寒くて乾燥し、氷点下になる日が多い、寒暖差の大きい気候です。"
+  },
+  {
+    "slug": "beijing",
+    "name": "北京",
+    "nameEn": "Beijing",
+    "country": "中国",
+    "lat": 39.9042,
+    "lon": 116.4074,
+    "summary": "中国の首都。夏は暑く、雨は7〜8月に集中します。冬は寒くて乾燥し、春は黄砂の影響を受けることがあります。"
+  },
+  {
+    "slug": "shanghai",
+    "name": "上海",
+    "nameEn": "Shanghai",
+    "country": "中国",
+    "lat": 31.2304,
+    "lon": 121.4737,
+    "summary": "中国最大級の都市。夏は蒸し暑く、6〜7月ごろに梅雨があります。冬は湿度が高く、冷え込みを強く感じやすい気候です。"
+  },
+  {
+    "slug": "hong-kong",
+    "name": "香港",
+    "nameEn": "Hong Kong",
+    "country": "中国",
+    "lat": 22.3193,
+    "lon": 114.1694,
+    "summary": "亜熱帯の気候で、夏は高温多湿で雨が多く、台風は主に7〜9月ごろに接近します。冬は比較的穏やかで、乾燥した晴れの日が多くなります。"
+  },
+  {
+    "slug": "taipei",
+    "name": "台北",
+    "nameEn": "Taipei",
+    "country": "台湾",
+    "lat": 25.033,
+    "lon": 121.5654,
+    "summary": "亜熱帯の湿潤な気候。夏は高温多湿で、台風は夏から秋に注意が必要です。冬も比較的暖かいものの、曇りや雨の日が多くなります。"
+  },
+  {
+    "slug": "singapore",
+    "name": "シンガポール",
+    "nameEn": "Singapore",
+    "country": "シンガポール",
+    "lat": 1.3521,
+    "lon": 103.8198,
+    "summary": "赤道に近い熱帯の都市。気温は一年を通して高く、季節による変化が小さいのが特徴です。雨は一年中降り、11〜1月ごろに多くなる傾向があります。"
+  },
+  {
+    "slug": "jakarta",
+    "name": "ジャカルタ",
+    "nameEn": "Jakarta",
+    "country": "インドネシア",
+    "lat": -6.2088,
+    "lon": 106.8456,
+    "summary": "インドネシアの首都。熱帯の気候で、気温の年変動は小さく、雨季(おおむね11〜3月)と乾季(おおむね5〜9月)に分かれます。"
+  },
+  {
+    "slug": "manila",
+    "name": "マニラ",
+    "nameEn": "Manila",
+    "country": "フィリピン",
+    "lat": 14.5995,
+    "lon": 120.9842,
+    "summary": "フィリピンの首都。熱帯モンスーン気候で、乾季(11〜4月ごろ)と雨季(6〜10月ごろ)があります。台風の影響を受けやすい地域です。"
+  },
+  {
+    "slug": "hanoi",
+    "name": "ハノイ",
+    "nameEn": "Hanoi",
+    "country": "ベトナム",
+    "lat": 21.0278,
+    "lon": 105.8342,
+    "summary": "ベトナム北部の都市。夏は高温多湿で雨が多く、冬は曇りがちで冷え込む日もあるなど、四季がはっきり分かれています。"
+  },
+  {
+    "slug": "delhi",
+    "name": "デリー",
+    "nameEn": "Delhi",
+    "country": "インド",
+    "lat": 28.6139,
+    "lon": 77.209,
+    "summary": "インドの首都。4〜6月は非常に暑く、40℃を超える日もあります。7〜9月はモンスーンの雨が降り、12〜1月は朝晩が冷え込んで霧が出やすくなります。"
+  },
+  {
+    "slug": "mumbai",
+    "name": "ムンバイ",
+    "nameEn": "Mumbai",
+    "country": "インド",
+    "lat": 19.076,
+    "lon": 72.8777,
+    "summary": "インド西海岸の大都市。熱帯モンスーン気候で、6〜9月の雨季に大量の雨が降り、そのほかの時期は乾燥した暖かい天気が続きます。"
+  },
+  {
+    "slug": "dubai",
+    "name": "ドバイ",
+    "nameEn": "Dubai",
+    "country": "アラブ首長国連邦",
+    "lat": 25.2048,
+    "lon": 55.2708,
+    "summary": "砂漠気候の都市。夏(6〜9月)は非常に暑く、冬は穏やかで過ごしやすくなります。雨はまれで、降るのは主に冬です。"
+  },
+  {
+    "slug": "istanbul",
+    "name": "イスタンブール",
+    "nameEn": "Istanbul",
+    "country": "トルコ",
+    "lat": 41.0082,
+    "lon": 28.9784,
+    "summary": "ヨーロッパとアジアにまたがる都市。夏は暑く乾燥し、冬は雨が多く、雪が降る日もある、はっきりした四季がある気候です。"
+  },
+  {
+    "slug": "moscow",
+    "name": "モスクワ",
+    "nameEn": "Moscow",
+    "country": "ロシア",
+    "lat": 55.7558,
+    "lon": 37.6173,
+    "summary": "ロシアの首都。冬は長く寒く、氷点下が続いて雪が積もります。夏は短いものの暖かく、日が長くなります。"
+  },
+  {
+    "slug": "paris",
+    "name": "パリ",
+    "nameEn": "Paris",
+    "country": "フランス",
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "summary": "フランスの首都。海洋性の気候で、夏も冬も極端な暑さや寒さは少なめです。雨は一年を通して降り、天気が変わりやすいのが特徴です。"
+  },
+  {
+    "slug": "berlin",
+    "name": "ベルリン",
+    "nameEn": "Berlin",
+    "country": "ドイツ",
+    "lat": 52.52,
+    "lon": 13.405,
+    "summary": "ドイツの首都。夏は暖かく、冬は寒くて氷点下になる日もあります。年間を通して雨は多すぎず、曇りの日が多くなります。"
+  },
+  {
+    "slug": "rome",
+    "name": "ローマ",
+    "nameEn": "Rome",
+    "country": "イタリア",
+    "lat": 41.9028,
+    "lon": 12.4964,
+    "summary": "イタリアの首都。地中海性の気候で、夏は暑くて乾燥し、冬は温暖で雨が多くなります。"
+  },
+  {
+    "slug": "madrid",
+    "name": "マドリード",
+    "nameEn": "Madrid",
+    "country": "スペイン",
+    "lat": 40.4168,
+    "lon": -3.7038,
+    "summary": "スペインの首都。標高が約650mの内陸にあり、夏は暑くて乾燥し、冬は冷え込みます。1日の寒暖差が大きい日もあります。"
+  },
+  {
+    "slug": "reykjavik",
+    "name": "レイキャビク",
+    "nameEn": "Reykjavik",
+    "country": "アイスランド",
+    "lat": 64.1466,
+    "lon": -21.8174,
+    "summary": "アイスランドの首都。暖流の影響で、緯度のわりに冬の冷え込みは穏やかで、夏も涼しい気候です。冬は日照時間が短く、夏は夜遅くまで明るくなります。"
+  },
+  {
+    "slug": "cairo",
+    "name": "カイロ",
+    "nameEn": "Cairo",
+    "country": "エジプト",
+    "lat": 30.0444,
+    "lon": 31.2357,
+    "summary": "エジプトの首都。砂漠気候で、夏は非常に暑くて乾燥し、冬は穏やかです。雨はまれで、降るのは主に冬です。"
+  },
+  {
+    "slug": "nairobi",
+    "name": "ナイロビ",
+    "nameEn": "Nairobi",
+    "country": "ケニア",
+    "lat": -1.2921,
+    "lon": 36.8219,
+    "summary": "ケニアの首都。赤道に近いものの、標高が約1,700mを超える高地のため、年間を通して穏やかな気候です。雨季は3〜5月ごろと10〜12月ごろです。"
+  },
+  {
+    "slug": "lagos",
+    "name": "ラゴス",
+    "nameEn": "Lagos",
+    "country": "ナイジェリア",
+    "lat": 6.5244,
+    "lon": 3.3792,
+    "summary": "ナイジェリア最大の都市。一年を通して高温多湿で、雨季(4〜10月ごろ)と乾季(11〜3月ごろ)があります。乾季には、砂塵を含む乾いた風が吹くことがあります。"
+  },
+  {
+    "slug": "johannesburg",
+    "name": "ヨハネスブルグ",
+    "nameEn": "Johannesburg",
+    "country": "南アフリカ",
+    "lat": -26.2041,
+    "lon": 28.0473,
+    "summary": "南アフリカの大都市で、標高は約1,750mです。南半球のため、夏は11〜3月で雷雨が多く、冬は6〜8月で乾燥して晴れ、朝晩は冷え込みます。"
+  },
+  {
+    "slug": "cape-town",
+    "name": "ケープタウン",
+    "nameEn": "Cape Town",
+    "country": "南アフリカ",
+    "lat": -33.9249,
+    "lon": 18.4241,
+    "summary": "南アフリカ南西部の都市。地中海性の気候で、南半球のため夏は12〜2月、冬は6〜8月です。夏は乾燥して暖かく、雨は主に冬に降ります。"
+  },
+  {
+    "slug": "chicago",
+    "name": "シカゴ",
+    "nameEn": "Chicago",
+    "country": "アメリカ",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "summary": "アメリカ中西部の大都市。冬は寒く雪が多く、夏は暖かく蒸し暑い日もあります。ミシガン湖の影響を受け、風が強い日があります。"
+  },
+  {
+    "slug": "los-angeles",
+    "name": "ロサンゼルス",
+    "nameEn": "Los Angeles",
+    "country": "アメリカ",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "summary": "アメリカ西海岸の都市。地中海性の気候で、一年を通して温暖です。雨は主に冬(11〜3月ごろ)に降り、夏はほとんど降りません。"
+  },
+  {
+    "slug": "anchorage",
+    "name": "アンカレッジ",
+    "nameEn": "Anchorage",
+    "country": "アメリカ",
+    "lat": 61.2181,
+    "lon": -149.9003,
+    "summary": "アラスカ最大の都市。冬は寒く日照時間が短く、夏は涼しくて日が長い、季節による昼の長さの差が大きい気候です。"
+  },
+  {
+    "slug": "honolulu",
+    "name": "ホノルル",
+    "nameEn": "Honolulu",
+    "country": "アメリカ",
+    "lat": 21.3069,
+    "lon": -157.8583,
+    "summary": "ハワイ・オアフ島の都市。貿易風の影響で、気温が一年を通して安定しています。冬は雨がやや多く、夏は乾燥しやすい傾向があります。"
+  },
+  {
+    "slug": "toronto",
+    "name": "トロント",
+    "nameEn": "Toronto",
+    "country": "カナダ",
+    "lat": 43.6532,
+    "lon": -79.3832,
+    "summary": "カナダ最大の都市。冬は寒く雪が降り、夏は暖かく、蒸し暑い日もあります。四季の変化がはっきりしています。"
+  },
+  {
+    "slug": "mexico-city",
+    "name": "メキシコシティ",
+    "nameEn": "Mexico City",
+    "country": "メキシコ",
+    "lat": 19.4326,
+    "lon": -99.1332,
+    "summary": "メキシコの首都で、標高は約2,240mです。熱帯に近い緯度でも高地のため、年間を通して穏やかな気候です。雨季は5〜10月ごろです。"
+  },
+  {
+    "slug": "lima",
+    "name": "リマ",
+    "nameEn": "Lima",
+    "country": "ペルー",
+    "lat": -12.0464,
+    "lon": -77.0428,
+    "summary": "ペルーの首都。海沿いの砂漠気候で、雨はほとんど降りません。南半球のため、冬(6〜9月ごろ)は霧や雲で曇りがちな日が続きます。"
+  },
+  {
+    "slug": "sao-paulo",
+    "name": "サンパウロ",
+    "nameEn": "Sao Paulo",
+    "country": "ブラジル",
+    "lat": -23.5505,
+    "lon": -46.6333,
+    "summary": "ブラジル最大の都市。南半球のため、夏は12〜3月で暖かく雨が多く、冬は6〜8月で比較的乾燥して涼しくなります。"
+  },
+  {
+    "slug": "buenos-aires",
+    "name": "ブエノスアイレス",
+    "nameEn": "Buenos Aires",
+    "country": "アルゼンチン",
+    "lat": -34.6037,
+    "lon": -58.3816,
+    "summary": "アルゼンチンの首都。南半球のため、夏は12〜2月で暑く蒸し暑くなり、冬は6〜8月で穏やかに冷え込みます。"
+  },
+  {
+    "slug": "melbourne",
+    "name": "メルボルン",
+    "nameEn": "Melbourne",
+    "country": "オーストラリア",
+    "lat": -37.8136,
+    "lon": 144.9631,
+    "summary": "オーストラリア南東部の都市。南半球のため、夏は12〜2月です。天気が変わりやすく、1日のうちに天気や気温が大きく変わることで知られています。"
+  },
+  {
+    "slug": "auckland",
+    "name": "オークランド",
+    "nameEn": "Auckland",
+    "country": "ニュージーランド",
+    "lat": -36.8509,
+    "lon": 174.7645,
+    "summary": "ニュージーランド最大の都市。南半球のため、夏は12〜2月です。海洋性の穏やかな気候で、雨は冬にやや多くなる傾向があります。"
+  }
 ]
